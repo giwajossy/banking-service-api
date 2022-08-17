@@ -3,7 +3,7 @@
 
 A system where user can create an account, fund their wallet, transfer funds to another user\'s account, withdraw funds, and see transaction history.
 
-> [Preview deployed API 🚀](https://******.herokuapp.com/) 
+> [Preview deployed API 🚀](https://lendsqr-service-api.herokuapp.com/) 
 
 
 **Environments**
@@ -60,9 +60,9 @@ npm test
 
 ---
 
-> [Swagger Documentation 📜](https://******/) 
+> [Swagger Documentation 📜](https://lendsqr-service-api.herokuapp.com/api/v1/api-docs/) 
 
-![Swagger Demo](https://github.com/giwajossy/new-banking-service-api/blob/main/demo.gif)
+![Swagger Demo](https://github.com/giwajossy/banking-service-api/blob/main/demo.gif)
 
 
 
