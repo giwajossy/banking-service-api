@@ -1,0 +1,131 @@
+components:
+  schemas:
+    Message: 
+      required:
+          - success
+          - message
+      properties:
+        success: 
+          type: boolean
+        message: 
+          type: string 
+
+    UserRequestBody:
+      properties:
+        name: 
+          type: string
+        email:
+          type: string
+        password: 
+          type: string
+
+    UserResponse:
+      properties: 
+        success:
+          type: boolean
+        message: 
+          type: string
+        data:
+          type: object
+          properties:
+            wallet:
+              type: object
+              properties:
+                address: 
+                  type: string
+                balance: 
+                  type: integer
+            isDeleted:
+              type: boolean
+            createdAt:
+              type: string
+    
+    SigninRequestBody:
+      properties: 
+        email:
+          type: string
+        password: 
+          type: string
+
+    SigninResponse:
+      properties: 
+        success:
+          type: boolean
+        message: 
+          type: string
+        data:
+          type: object
+          properties:
+            wallet:
+              type: object
+              properties:
+                address: 
+                  type: string
+                balance: 
+                  type: integer
+            token:
+              type: string
+
+    ResetPasswordRequestBody:
+      properties:
+        email:
+          type: string
+        newPassword:
+          type: string
+        confirmNewPassword:
+          type: string
+
+    ResetPasswordResponse:
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+
+    FundWalletRequestBody:
+      properties: 
+        amount:
+          type: integer
+
+    FundWalletResponseBody:
+      properties: 
+        type:
+          type: string
+        amount:
+          type: integer
+
+    TransferFundsRequestBody:
+      properties: 
+        amount:
+          type: integer
+        recipientAddress:
+          type: string
+
+    TransferFundsResponseBody:
+      properties: 
+        type:
+          type: string
+        recipient:
+          type: string
+        amount:
+          type: integer
+
+    WithdrawFundsRequestBody:
+      properties: 
+        amount:
+          type: integer
+
+    WithdrawFundsResponseBody:
+      properties: 
+        type:
+          type: string
+        amount:
+          type: integer
+
+
+    TransactionHistoryResponseBody:
+      properties: 
+        type:
+          type: string
+        amount:
+          type: integer

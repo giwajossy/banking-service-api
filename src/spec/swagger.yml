@@ -1,0 +1,342 @@
+paths:
+  /:
+    get:
+      tags:
+        - Default
+      operationId: welcomeRoute
+      summary: Health Check
+      description: Base URL. **Returns an object when the server has started**
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Message"
+              example:
+                - success: true
+                  message: "Welcome to the Banking service API - Lendsqr"
+
+  # RCreate an account
+  /api/v1/auth/register:
+    post:
+      tags:
+        - Users
+      operationId: Register
+      summary: Create an account
+      description: Returns an object containing metadata about the new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserRequestBody"
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponse"
+              example:
+                - success: true
+                  messge: Sign Up successful!
+                  data:
+                    name: John Doe
+                    email: John@Doe.com
+                    wallet: 
+                      address: 30eaffcb-a116-4755-9c3d-f97a4770581d
+                      balance: 0
+                    isDeleted: false
+                    createdAt: '2022-08-16T23:24:23.761Z'
+        500:
+          $ref: "#/components/responses/InternalError"
+
+  # Sign-in a user
+  /api/v1/auth/signin:
+    post:
+      tags:
+        - Users
+      operationId: signIn
+      summary: Sign-in a user
+      description: Returns an object containing metadata about the signed in user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SigninRequestBody"
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SigninResponse"
+              example:
+                - success: true
+                  messge: Sign In successful!
+                  data:
+                    name: Giwa Jossy
+                    email: John@Doe.com
+                    wallet: 
+                      address: 30eaffcb-a116-4755-9c3d-f97a4770581d
+                      balance: 0
+                    token: false
+        500:
+          $ref: "#/components/responses/InternalError"
+
+  # Endpoint documentation to GET all Users.
+  /api/v1/users:
+    get:
+      tags:
+        - Users
+      operationId: getAllUsers
+      summary: Get all users
+      description: Returns an object containing the metadata for each user.
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  count:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      $ref: "#/components/schemas/UserResponse"
+        500:
+          $ref: "#/components/responses/InternalError"
+
+
+  # Reset Password
+  /api/v1/auth/resetpassword:
+    patch:
+      tags:
+        - Users
+      operationId: resetPassword
+      summary: Reset Password
+      description: Returns an object confirming the password change.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ResetPasswordRequestBody"
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResetPasswordResponse"
+        500:
+          $ref: "#/components/responses/InternalError"
+
+    # Delete a user
+  /api/v1/users/{id}:
+    delete:
+      tags:
+        - Users
+      operationId: deleteAUser
+      summary: Delete a user
+      description: Returns an object confirming the status of the delete operation.
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        401:
+          $ref: "#/components/responses/UnauthorizedError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        422:
+          $ref: "#/components/responses/BadRequestError"
+        500:
+          $ref: "#/components/responses/InternalError"
+
+  
+  
+  
+  
+  # Transactions
+  # Fund a wallet
+  /api/v1/transaction/fund_wallet:
+    post:
+      tags:
+        - Transactions
+      operationId: fundWallet
+      summary: Fund wallet
+      description: Returns an object containing metadata about the transaction
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FundWalletRequestBody"      
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    $ref: "#/components/schemas/FundWalletResponseBody"
+        401:
+          $ref: "#/components/responses/UnauthorizedError"
+        422:
+          $ref: "#/components/responses/BadRequestError"
+        500:
+          $ref: "#/components/responses/InternalError"
+
+
+  
+  # Transfer Funds
+  /api/v1/transaction/transfer_funds:
+    post:
+      tags:
+        - Transactions
+      operationId: transferFunds
+      summary: Transfer funds to another user
+      description: Returns an object containing metadata about the transaction
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TransferFundsRequestBody"      
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    $ref: "#/components/schemas/TransferFundsResponseBody"
+        401:
+          $ref: "#/components/responses/UnauthorizedError"
+        422:
+          $ref: "#/components/responses/BadRequestError"
+        500:
+          $ref: "#/components/responses/InternalError"
+
+
+  
+  # Withdraw Funds
+  /api/v1/transaction/withdraw_funds:
+    post:
+      tags:
+        - Transactions
+      operationId: withdrawFunds
+      summary: Withdrawal funds
+      description: Returns an object containing metadata about the transaction
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WithdrawFundsRequestBody"      
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    $ref: "#/components/schemas/WithdrawFundsResponseBody"
+        401:
+          $ref: "#/components/responses/UnauthorizedError"
+        422:
+          $ref: "#/components/responses/BadRequestError"
+        500:
+          $ref: "#/components/responses/InternalError"
+
+
+
+
+    # Get transaction history
+  /api/v1/transaction/transaction_history:
+    get:
+      tags:
+        - Transactions
+      operationId: getTransactionHistory
+      summary: Get transaction history
+      description: Returns an object containing metadata about the transaction
+      security:
+        - bearerAuth: []    
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      $ref: "#/components/schemas/TransactionHistoryResponseBody"
+        401:
+          $ref: "#/components/responses/UnauthorizedError"
+        422:
+          $ref: "#/components/responses/BadRequestError"
+        500:
+          $ref: "#/components/responses/InternalError"
+
