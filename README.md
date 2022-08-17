@@ -56,11 +56,11 @@ npm test
 
 **Documentation**
 
-> [Postman Collection 📜](https://******/api-docs/)
+<!-- > [The postman collection 📜](https://******/) -->
 
 ---
 
-> [Swagger Documentation 📜](https://lendsqr-service-api.herokuapp.com/api/v1/api-docs/) 
+> [Click to preview swagger documentation 📜](https://lendsqr-service-api.herokuapp.com/api/v1/api-docs/) 
 
 ![Swagger Demo](https://github.com/giwajossy/banking-service-api/blob/main/demo.gif)
 
