@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 import { Request, Response, NextFunction } from 'express'
 import { getToken } from './utils'
 import { ObjectId } from 'mongoose'
-import userModel from '../models/user/user.model'
+import userModel from '../models/user.model'
 
 
 const secret = process.env.SECRET as string

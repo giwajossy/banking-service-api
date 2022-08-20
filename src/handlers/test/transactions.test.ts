@@ -1,11 +1,10 @@
 import chai from 'chai'
 import supertest from 'supertest'
-import { Request, Response } from 'express'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import app from '../../app'
-import UserModel from '../../models/user/user.model'
-import TransactionModel from '../../models/transaction/transaction.model'
+import UserModel from '../../models/user.model'
+import TransactionModel from '../../models/transaction.model'
 import { v4 as uuidv4 } from 'uuid';
 
 const { expect } = chai

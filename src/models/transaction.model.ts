@@ -1,5 +1,5 @@
 import { Schema, model} from 'mongoose'
-import ITransaction from './transaction.interface'
+import { ITransaction } from '../interfaces'
 
 const transactionSchema = new Schema<ITransaction>({
     sender: {
@@ -23,9 +23,6 @@ const transactionSchema = new Schema<ITransaction>({
         default: () => Date.now()
     }
 })
-
-
-
 
 
 export default model<ITransaction>('Transaction', transactionSchema)

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { BaseHandler } from '../interfaces/handler'
+import { BaseHandler } from '../interfaces'
 
 
 class getInvalidRoute extends BaseHandler {

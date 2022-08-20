@@ -1,8 +1,8 @@
 import { Request, Response } from 'express'
-import { BaseHandler } from '../interfaces/handler'
-import TransactionModel from '../models/transaction/transaction.model'
+import { BaseHandler } from '../interfaces'
+import TransactionModel from '../models/transaction.model'
 import { Types } from 'mongoose'
-import UserModel from '../models/user/user.model'
+import UserModel from '../models/user.model'
 
 
 export class Transaction extends BaseHandler {
@@ -151,19 +151,18 @@ export class Transaction extends BaseHandler {
         try {
 
             if (Types.ObjectId.isValid(id)) {
-                TransactionModel.find({ author: id })
-                    .then((user) => {
-                        !user
+                TransactionModel.find({ sender: new Types.ObjectId(id) })
+                    .then((transaction) => {
+                        !transaction
                             ? res.status(404).json({ success: false, message: 'Error retrieving history' })
-                            : res.status(200).json({ success: true, message: 'Operation successful', data: user })
-                    })
+                            : res.status(200).json({ success: true, message: 'Operation successful', data: transaction })
+                    }).catch(err => console.log(err))
             } else {
                 return res.status(422).json({ success: false, message: 'Invalid Id' })
             }
         } catch (error) {
             throw new Error((error as Error).message)
         }
-
 
     }
 

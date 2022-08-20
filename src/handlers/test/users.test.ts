@@ -3,7 +3,7 @@ import supertest from 'supertest'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import app from '../../app'
-import UserModel from '../../models/user/user.model'
+import UserModel from '../../models/user.model'
 import { v4 as uuidv4 } from 'uuid';
 
 const { expect } = chai

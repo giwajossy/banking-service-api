@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import isEmail from 'validator/lib/isEmail'
-import UserModel from '../models/user/user.model'
+import UserModel from '../models/user.model'
 import { Types } from 'mongoose'
 import { v4 as uuidv4 } from 'uuid';
 
