@@ -8,9 +8,9 @@ const swaggerJsDocs = swaggerJSDoc({
     definition: {
         openapi: '3.0.0',
         info: {
-            title: 'Banking Service API - Lendsqr 💰  ',
+            title: 'Banking Service API',
             version: '1.0.0',
-            description: 'A system where user can create an account, fund their wallet, transfer funds to another user\'s account, withdraw funds, and see transaction history. [Click to see live preview](https://lendsqr-service-api.herokuapp.com/)',
+            description: 'A system where user can create an account, fund their wallet, transfer funds to another user\'s account, withdraw funds, and see transaction history. [Click to see live preview](https://banking-service.herokuapp.com/)',
             contact: {
                 name: 'API Support',
                 email: 'giwajossy@gmail.com',
@@ -24,11 +24,11 @@ const swaggerJsDocs = swaggerJSDoc({
     },
     servers: [
         {
-            url: 'https://lendsqr-service-api.herokuapp.com/',
+            url: 'https://banking-service.herokuapp.com/',
             description: 'Developmenent server'
         },
         {
-            url: 'https://lendsqr-service-api.herokuapp.com/',
+            url: 'https://banking-service.herokuapp.com/',
             description: 'Production server'
         }
     ],

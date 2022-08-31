@@ -17,15 +17,18 @@ export interface ITransaction {
 }
 
 export interface IUser {
-    _id: Types.ObjectId;
-    name: string;
-    email: string;
-    hash: string; 
-    wallet: {
-        address: string,
-        balance: number
-    };
-    isDeleted: boolean;
-    createdAt: Date;
-    _doc: any
+  _id: Types.ObjectId;
+  name: string;
+  email: string;
+  hash: string; 
+  wallet: {
+    address: string,
+    balance: number
+  };
+  isDeleted: boolean;
+  createdAt: Date;
+  _doc: any;
+  save(): any;
 }
+
+

@@ -15,8 +15,6 @@ const secret = process.env.SECRET as string
 let newTransaction: any = {}
 let testUser: any = {}
 
-
-
 const transactionData = {
     sender: '62fbdccbcaaf70be72382b7d',
     type: 'deposit',
@@ -114,7 +112,7 @@ describe('TRANSACTIONS', () => {
 
 
     // Transfer Funds
-    describe('POST /api/v1/transaction/transafer_funds/', () => {
+    describe('POST /api/v1/transaction/transfer_funds/', () => {
 
         it('Should successfully transfer funds to another user', (done) => {
             const payload = {
@@ -124,7 +122,7 @@ describe('TRANSACTIONS', () => {
                 amount: 10
             }
             request
-                .post('/api/v1/transaction/transafer_funds')
+                .post('/api/v1/transaction/transfer_funds')
                 .set('authorization', `Bearer ${testUser.token}`)
                 .send(payload)
                 .end((err, res) => {
@@ -151,7 +149,7 @@ describe('TRANSACTIONS', () => {
                 .end((err, res) => {
                     expect(res.status).to.be.equal(404)
                     expect(res.body.success).to.be.equal(false)
-                    expect(res.body.message).to.be.equal('Recipient not found')
+                    expect(res.body.message).to.be.equal('unable to fetch recipient')
                     done()
                 })
         })

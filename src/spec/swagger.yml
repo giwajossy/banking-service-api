@@ -15,9 +15,9 @@ paths:
                 $ref: "#/components/schemas/Message"
               example:
                 - success: true
-                  message: "Welcome to the Banking service API - Lendsqr"
+                  message: "Welcome to the Banking service API"
 
-  # RCreate an account
+  # Create an account
   /api/v1/auth/register:
     post:
       tags:

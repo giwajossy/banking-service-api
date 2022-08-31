@@ -7,7 +7,7 @@ const welcomeRoute = (req: Request, res: Response) => {
   res.status(200).json(
     { 
       success: true,
-      message: 'Welcome to the Banking service API - Lendsqr 💰'
+      message: 'Welcome to the Banking service API 💰'
     })
 }
 

@@ -1,9 +1,9 @@
 
-# Banking Service API - Lendsqr 💰
+# Banking Service API 💰
 
-A system where user can create an account, fund their wallet, transfer funds to another user\'s account, withdraw funds, and see transaction history.
+Create an account, fund your wallet, transfer funds to other users, withdraw funds, and see transaction history.
 
-> [Preview deployed API 🚀](https://lendsqr-service-api.herokuapp.com/) 
+> [Preview deployed API 🚀](https://banking-service.herokuapp.com/) 
 
 
 **Environments**
@@ -60,7 +60,7 @@ npm test
 
 ---
 
-> [Click to preview swagger documentation 📜](https://lendsqr-service-api.herokuapp.com/api/v1/api-docs/) 
+> [Click to preview swagger documentation 📜](https://banking-service.herokuapp.com/api/v1/api-docs/) 
 
 ![Swagger Demo](https://github.com/giwajossy/banking-service-api/blob/main/demo.gif)
 

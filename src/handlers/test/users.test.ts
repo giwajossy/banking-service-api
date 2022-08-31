@@ -187,7 +187,7 @@ describe('USERS', () => {
                     done()
                 })
         })
-
+        
 
         it('Should return \'Password Changed \'', (done) => {
             const validCredentials = {
