@@ -16,6 +16,7 @@ Create an account, fund your wallet, transfer funds to other users, withdraw fun
 - NodeJS
 - ExpressJS
 - Typescript
+- MongoDB
 - Supertest
 
 note: `run all commands in the applications root directory`
