@@ -3,7 +3,7 @@
 
 Create an account, fund your wallet, transfer funds to other users, withdraw funds, and see transaction history.
 
-> [Preview deployed API 🚀](https://banking-service.herokuapp.com/) 
+> [Preview deployed API 🚀](https://banking-service-api.up.railway.app/) 
 
 
 **Environments**
@@ -57,11 +57,9 @@ npm test
 
 **Documentation**
 
-<!-- > [The postman collection 📜](https://******/) -->
-
 ---
 
-> [Click to preview swagger documentation 📜](https://banking-service.herokuapp.com/api/v1/api-docs/) 
+> [Click to preview swagger documentation 📜](https://banking-service-api.up.railway.app/api/v1/api-docs/) 
 
 ![Swagger Demo](https://github.com/giwajossy/banking-service-api/blob/main/demo.gif)
 
